@@ -1,4 +1,4 @@
-# foodtrucks
+# chinolatino
 
 ## Project setup
 ```
