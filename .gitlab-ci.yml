@@ -37,7 +37,6 @@ build:project:
   image: ${JOMIGU_NODE_IMAGE}
   script:
     - git remote set-url origin ${JOMIGU_WEBSITE_REPO}
-    - git push -u origin main
     - npm install
     - sh deploy.sh
   artifacts:
