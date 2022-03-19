@@ -1,3 +1,3 @@
 #! /bin/sh
 
-git push gitlab main
+git push origin main
