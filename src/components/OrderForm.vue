@@ -4,7 +4,7 @@
     <div v-else>
       <ul class="trucks">
         <li v-for="truck in trucks" :key="truck.alias">
-          <a :href="'/?truck=' + truck.alias" class="btn btn-primary col-10 col-md-4 btn-lg mb-2">{{ truck.name }}</a>
+          <a :href="'/foodtrucks/?truck=' + truck.alias" class="btn btn-primary col-10 col-md-4 btn-lg mb-2">{{ truck.name }}</a>
         </li>
       </ul>
     </div>
