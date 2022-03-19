@@ -47,6 +47,7 @@ export default {
     async signOut() {
       await this.$gAuth.signOut()
       this.email = null
+      localStorage.setItem('email', '')
     },
     authenticated() {
       return this.email != null
