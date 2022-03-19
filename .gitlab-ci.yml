@@ -11,6 +11,8 @@ variables:
   JOMIGU_NODE_IMAGE: tsiminiya/foodtrucks-website-builder:${CI_COMMIT_REF_NAME}
   BACKUP_JOMIGU_NODE_IMAGE: tsiminiya/foodtrucks-website-builder:${CI_COMMIT_REF_NAME}
   JOMIGU_WEBSITE_REPO: https://tsiminiya:${GITHUB_ACCESS_TOKEN}@github.com/jomigu/foodtrucks.git
+  ORDER_FORM_URL: https://script.google.com/macros/s/AKfycby98lwk4hb8SN1Mls8il0W6ksDN0xkJYxWX7b1Dw_ehFJY0F-QA-1jijGvOtvc2zSRV/exec
+  CLIENT_ID: 18495362772-nbpqq763ct061mfc07vtaaojkt0h2eir.apps.googleusercontent.com
 
 services:
   - docker:19.03.12-dind
@@ -38,7 +40,11 @@ build:project:
   script:
     - git remote set-url origin ${JOMIGU_WEBSITE_REPO}
     - npm install
-    - sh deploy.sh
+    - npm run build
+    - git stash
+    - git config --global user.email "${GIT_CONFIG_EMAIL}"
+    - git config --global user.name "${GIT_CONFIG_NAME}"
+    - npm run deploy
   artifacts:
     paths:
       - dist

@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "VUE_APP_ORDER_FORM_URL=$ORDER_FORM_URL VUE_APP_CLIENT_ID=$CLIENT_ID vue-cli-service serve --port $DEV_PORT",
-    "build": "vue-cli-service build",
+    "build": "VUE_APP_ORDER_FORM_URL=$ORDER_FORM_URL VUE_APP_CLIENT_ID=$CLIENT_ID vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "push": "push-dir --dir=dist --branch=gh-pages --cleanup",
-    "deploy": "VUE_APP_ORDER_FORM_URL=$ORDER_FORM_URL VUE_APP_CLIENT_ID=$CLIENT_ID npm run build && npm run push"
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "bootstrap": "^5.1.3",
