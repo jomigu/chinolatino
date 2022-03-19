@@ -11,8 +11,9 @@ variables:
   JOMIGU_NODE_IMAGE: tsiminiya/chinolatino-website-builder:${CI_COMMIT_REF_NAME}
   BACKUP_JOMIGU_NODE_IMAGE: tsiminiya/chinolatino-website-builder:${CI_COMMIT_REF_NAME}
   JOMIGU_WEBSITE_REPO: https://tsiminiya:${GITHUB_ACCESS_TOKEN}@github.com/jomigu/chinolatino.git
-  ORDER_FORM_URL: https://script.google.com/macros/s/AKfycby98lwk4hb8SN1Mls8il0W6ksDN0xkJYxWX7b1Dw_ehFJY0F-QA-1jijGvOtvc2zSRV/exec
+  ORDER_FORM_URL: https://script.google.com/macros/s/AKfycbxwJhbzpdCGbjePaBguvEITrAN_tFK3ob5XzK6BfAzf6UEwwi080crqrc-570szkhU7/exec
   CLIENT_ID: 18495362772-0jm1jhpk2ja9elt2hijudvf1ibpaeega.apps.googleusercontent.com
+  APPSCRIPT_CODE_VERSION: vBeta1.5
 
 services:
   - docker:19.03.12-dind
