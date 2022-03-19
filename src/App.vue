@@ -1,7 +1,12 @@
 <template>
   <nav>
     <p v-if="email" class="mt-3">
-      <small>Logged-in as {{ email }}. </small>
+      <a href="/chinolatino">
+        <small>Home</small>
+      </a>
+      <span>&nbsp;|&nbsp;</span>
+      <small>Logged-in as {{ email }}.</small>
+      <span>&nbsp;|&nbsp;</span>
       <a href="#" @click="signOut">
         <small>Sign-out</small>
       </a>
