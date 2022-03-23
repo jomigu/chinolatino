@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <p v-if="email" class="mt-3">
+    <p v-if="email && validBrowser" class="mt-3">
       <a href="/chinolatino">
         <small>Home</small>
       </a>
@@ -17,18 +17,24 @@
     <p v-show="loginError" class="text-danger">
       <small>Try again</small>
     </p>
+    <p v-show="!validBrowser">
+      <span>This browser is not supported, please click link to open a new window</span>
+      <a @click="signIn" class="btn btn-primary mt-5">Open a new window</a>
+    </p>
   </nav>
   <router-view v-if="email" />
 </template>
 
 <script>
 import { inject } from 'vue'
+import { detect } from 'detect-browser'
 
 export default {
   data() {
     return {
       email: null,
       loginError: false,
+      validBrowser: true,
     }
   },
   methods: {
@@ -59,8 +65,9 @@ export default {
     }
   },
   mounted() {
-    const email = localStorage.getItem('email')
-    this.email = email
+    this.email = localStorage.getItem('email')
+    this.validBrowser = ['chrome', 'safari', 'firefox', 'opera', 'edge']
+      .indexOf(detect().name) > -1
   },
   setup() {
     const Vue3GoogleOauth = inject("Vue3GoogleOauth")

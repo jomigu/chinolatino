@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import gapi from 'vue3-google-oauth2'
 
-
 import App from './App.vue'
 import router from './router'
 
