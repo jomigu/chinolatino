@@ -25,6 +25,14 @@
     <p v-show="!validBrowser" class="mt-5">
       <a :href="url">{{ url }}</a>
     </p>
+    <div v-show="!validBrowser" class="video-container mt-5">
+      <p>
+        <span>You may <a href="#" @click="playVideo">play</a> the video below on how to open the page from here.</span>
+      </p>
+      <video id="messenger-video" controls>
+        <source src="@/assets/opening-from-facebook.mp4" type="video/mp4" />
+      </video>
+    </div>
   </nav>
   <router-view v-if="email && validBrowser" />
 </template>
@@ -67,6 +75,9 @@ export default {
     },
     authenticated() {
       return this.email != null
+    },
+    playVideo() {
+      document.getElementById('messenger-video').play()
     }
   },
   mounted() {
@@ -106,5 +117,10 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
 }
 </style>
