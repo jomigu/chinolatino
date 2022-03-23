@@ -19,7 +19,8 @@
     </p>
     <p v-show="!validBrowser" class="mt-5">
       <span>
-        This browser is not supported, please open this page on your device's default browser.
+        This browser is not supported, please open this page on your device's browser
+        (preferably Chrome, Safari or Firefox).
       </span>
     </p>
     <p v-show="!validBrowser" class="mt-5">
