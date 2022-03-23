@@ -11,18 +11,20 @@
         <small>Sign-out</small>
       </a>
     </p>
-    <p v-else>
+    <p v-else-if="validBrowser">
       <button @click="signIn" type="button" class="btn btn-lg btn-primary mt-5">Google Log-in</button>
     </p>
     <p v-show="loginError" class="text-danger">
       <small>Try again</small>
     </p>
-    <p v-show="!validBrowser">
+    <p v-show="!validBrowser" class="mt-5">
       <span>This browser is not supported, please click link to open a new window</span>
-      <a @click="signIn" class="btn btn-primary mt-5">Open a new window</a>
+    </p>
+    <p v-show="!validBrowser">
+      <a @click="openNewWindow" class="btn btn-primary mt-1">Open a new window</a>
     </p>
   </nav>
-  <router-view v-if="email" />
+  <router-view v-if="email && validBrowser" />
 </template>
 
 <script>
@@ -62,12 +64,17 @@ export default {
     },
     authenticated() {
       return this.email != null
+    },
+    openNewWindow() {
+      window.open(window.location.href)
     }
   },
   mounted() {
     this.email = localStorage.getItem('email')
+    const browser = detect()
+    console.log(browser.name)
     this.validBrowser = ['chrome', 'safari', 'firefox', 'opera', 'edge']
-      .indexOf(detect().name) > -1
+      .indexOf(browser.name) > -1
   },
   setup() {
     const Vue3GoogleOauth = inject("Vue3GoogleOauth")
