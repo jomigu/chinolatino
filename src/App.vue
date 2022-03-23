@@ -18,10 +18,12 @@
       <small>Try again</small>
     </p>
     <p v-show="!validBrowser" class="mt-5">
-      <span>This browser is not supported, please click link to open a new window</span>
+      <span>
+        This browser is not supported, please open this page on your device's default browser.
+      </span>
     </p>
-    <p v-show="!validBrowser">
-      <a @click="openNewWindow" class="btn btn-primary mt-1">Open a new window</a>
+    <p v-show="!validBrowser" class="mt-5">
+      <a :href="url">{{ url }}</a>
     </p>
   </nav>
   <router-view v-if="email && validBrowser" />
@@ -37,6 +39,7 @@ export default {
       email: null,
       loginError: false,
       validBrowser: true,
+      url: ''
     }
   },
   methods: {
@@ -64,13 +67,11 @@ export default {
     },
     authenticated() {
       return this.email != null
-    },
-    openNewWindow() {
-      window.open(window.location.href, '_system')
     }
   },
   mounted() {
     this.email = localStorage.getItem('email')
+    this.url = window.location.href
     const browser = detect()
     console.log(browser.name)
     this.validBrowser = ['chrome', 'safari', 'firefox', 'opera', 'edge']
