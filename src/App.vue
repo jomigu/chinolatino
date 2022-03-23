@@ -66,7 +66,7 @@ export default {
       return this.email != null
     },
     openNewWindow() {
-      window.open(window.location.href)
+      window.open(window.location.href, '_system')
     }
   },
   mounted() {
