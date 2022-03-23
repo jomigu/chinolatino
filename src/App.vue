@@ -17,16 +17,16 @@
     <p v-show="loginError" class="text-danger">
       <small>Try again</small>
     </p>
-    <p v-show="!validBrowser" class="mt-5">
+    <p v-show="!validBrowser" class="mt-1">
       <span>
         This browser is not supported, please open this page on your device's browser
         (preferably Chrome, Safari or Firefox).
       </span>
     </p>
-    <p v-show="!validBrowser" class="mt-5">
+    <p v-show="!validBrowser" class="mt-2">
       <a :href="url">{{ url }}</a>
     </p>
-    <div v-show="!validBrowser" class="video-container mt-5">
+    <div v-show="!validBrowser" class="video-container mt-2">
       <p>
         <span>You may <a href="#" @click="playVideo">play</a> the video below on how to open the page from here.</span>
       </p>
