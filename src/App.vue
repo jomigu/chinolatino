@@ -85,7 +85,6 @@ export default {
     this.email = localStorage.getItem('email')
     this.url = window.location.href
     const browser = detect()
-    console.log(browser.name)
     this.validBrowser = ['chrome', 'safari', 'firefox', 'opera', 'edge']
       .indexOf(browser.name) > -1
   },
